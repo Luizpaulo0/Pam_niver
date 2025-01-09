@@ -96,158 +96,98 @@
 	}
 }
 
-/* Aparti daqui é a segunda tela */
-#aventuras {
-	background: linear-gradient(0, #120c56, #000000);
-	margin: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	position: relative;
-	/* Necessário para posicionar elementos dentro da div */
-}
-
-@media (max-width: 768px) {
-	.container_aventuras {
-		background-size: auto 100vh;
-		/* Ajusta para sempre cobrir a altura em telas menores */
-	}
-}
-
-video {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 60%;
-	/* Vídeo ocupa 60% da largura da tela */
-	height: auto;
-	/* Altura ajustada proporcionalmente */
-	transform: translate(-50%, -50%);
-	/* Centraliza o vídeo horizontal e verticalmente */
-	object-fit: contain;
-	/* Faz com que o vídeo ocupe o espaço sem distorção */
-	border: 2px solid #333;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-	/* Faz o vídeo ficar à frente das estrelas */
-}
-
-body,
+/* Aparti daqui é a segunda tela */body,
 html {
 	margin: 0;
 	padding: 0;
-	height: auto;
-	/* Permite que a altura da página seja maior que a tela */
+	height: 100%;
 	background-color: black;
 	overflow-y: auto;
-	/* Permite a rolagem vertical */
-}
-
-/* O contêiner #aventuras agora vai organizar tudo em uma coluna */
-#aventuras {
+	font-family: Arial, sans-serif;
+  }
+  
+  #aventuras {
 	background: linear-gradient(0, #120c56, #000000);
-	margin: 0;
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	flex-direction: column;
-	/* Garante que os elementos fiquem em coluna */
-	height: 100vh;
-	position: relative;
-}
-
-video {
+	align-items: center;
+  }
+  
+  .container {
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 60%;
-	height: auto;
-	transform: translate(-50%, -50%);
-	object-fit: contain;
-	border: 2px solid #333;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-}
-
-.stars,
-.stars2 {
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	overflow: hidden;
+  }
+  
+  .stars,
+  .stars2 {
 	position: absolute;
 	width: 3px;
 	height: 3px;
 	border-radius: 50%;
-	box-shadow:
-		5vw 5vh white,
-		15vw 10vh white,
-		25vw 15vh white,
-		35vw 20vh white,
-		45vw 25vh white,
-		55vw 30vh white,
-		65vw 35vh white,
-		75vw 40vh white,
-		85vw 45vh white,
-		95vw 50vh white,
-		10vw 55vh white,
-		20vw 60vh white,
-		30vw 65vh white,
-		40vw 70vh white,
-		50vw 75vh white,
-		60vw 80vh white,
-		70vw 85vh white,
-		80vw 90vh white,
-		90vw 95vh white;
 	animation: anim-stars 10s linear infinite;
-	z-index: 0;
-}
-
-.stars2 {
+  }
+  
+  .stars2 {
 	width: 1px;
 	height: 1px;
-	box-shadow:
-		10vw 10vh white,
-		20vw 20vh white,
-		30vw 30vh white,
-		40vw 40vh white,
-		50vw 50vh white,
-		60vw 60vh white,
-		70vw 70vh white,
-		80vw 80vh white,
-		90vw 90vh white,
-		100vw 100vh white,
-		110vw 110vh white,
-		120vw 120vh white,
-		130vw 130vh white,
-		140vw 140vh white,
-		150vw 150vh white;
 	animation: anim-stars2 20s linear infinite;
-	z-index: 0;
-}
-
-@keyframes anim-stars {
+  }
+  
+  @keyframes anim-stars {
 	from {
-		transform: translateY(0);
+	  transform: translateY(0);
 	}
-
 	to {
-		transform: translateY(-100vh);
+	  transform: translateY(-100vh);
 	}
-}
-
-@keyframes anim-stars2 {
+  }
+  
+  @keyframes anim-stars2 {
 	from {
-		transform: translateY(0);
+	  transform: translateY(0);
 	}
-
 	to {
-		transform: translateY(-100vh);
+	  transform: translateY(-100vh);
 	}
-}
-
-.contentn {
-	margin-top: 80vh;
-	/* Garante que o conteúdo apareça após o vídeo */
-	color: white;
+  }
+  
+  .video {
+	z-index: 1;
+	margin: 20px auto;
 	text-align: center;
+	width: 60%;
+	height: auto;
+  }
+  
+  video {
+	width: 100%;
+	height: auto;
+	border: 2px solid #333;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .contentn {
+	z-index: 1;
+	text-align: center;
+	color: white;
+	margin: 40px auto;
+	width: 80%;
+	max-width: 800px;
 	padding: 20px;
-	font-size: 1.5em;
-}
+	font-size: 1.2em;
+  }
+  
+  @media (max-width: 768px) {
+	.video {
+	  width: 90%;
+	}
+  
+	.contentn {
+	  font-size: 1em;
+	  padding: 10px;
+	}
+  }
+  
