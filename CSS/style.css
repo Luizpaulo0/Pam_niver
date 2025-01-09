@@ -2,9 +2,9 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-  }
+}
 
-  body {
+#home {
 	background-image: url("../IMAGENS/20231205001143.png");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -15,39 +15,40 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  }
+}
 
-  .container {
+.container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 30px;
 	padding: 20px;
 	border-radius: 10px;
-	width: 80%; /* Ajusta a largura do container */
-  }
+	width: 80%;
+	/* Ajusta a largura do container */
+}
 
-  .content {
+.content {
 	max-width: 500px;
 	text-align: center;
-  }
+}
 
-  .content  {
+.content {
 	background: #fefeff;
 	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 	padding: 20px;
 	text-align: center;
 	max-width: 400px;
-  }
+}
 
-  .content p {
+.content p {
 	margin-bottom: 15px;
 	color: #555;
 	line-height: 1.5;
-  }
+}
 
-  #surprise-btn {
+#surprise-btn {
 	padding: 10px 20px;
 	font-size: 1em;
 	background-color: #4886d1;
@@ -56,40 +57,197 @@
 	border-radius: 5px;
 	cursor: pointer;
 	transition: background-color 0.3s;
-	
 
-  }
 
-  #surprise-btn:hover {
+}
+
+#surprise-btn:hover {
 	background-color: #3458c2;
-  }
+}
 
-  .images {
+.images {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-  }
+}
 
-  .images img {
-	width: 200px; /* Ajuste o tamanho conforme necessário */
+.images img {
+	width: 200px;
+	/* Ajuste o tamanho conforme necessário */
 	height: auto;
 	border-radius: 10px;
-	
+
 	transition: transform 0.3s;
-  }
+}
 
-  .images img:hover {
+.images img:hover {
 	transform: scale(1.05);
-  }
+}
 
-  /* Responsividade */
-  @media (max-width: 768px) {
+/* Responsividade */
+@media (max-width: 768px) {
 	.container {
-	  flex-direction: column;
-	  gap: 20px;	
+		flex-direction: column;
+		gap: 20px;
 	}
 
 	.images img {
-	  width: 150px;
+		width: 150px;
 	}
-  }
+}
+
+/* Aparti daqui é a segunda tela */
+#aventuras {
+	background: linear-gradient(0, #120c56, #000000);
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	position: relative;
+	/* Necessário para posicionar elementos dentro da div */
+}
+
+@media (max-width: 768px) {
+	.container_aventuras {
+		background-size: auto 100vh;
+		/* Ajusta para sempre cobrir a altura em telas menores */
+	}
+}
+
+video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 60%;
+	/* Vídeo ocupa 60% da largura da tela */
+	height: auto;
+	/* Altura ajustada proporcionalmente */
+	transform: translate(-50%, -50%);
+	/* Centraliza o vídeo horizontal e verticalmente */
+	object-fit: contain;
+	/* Faz com que o vídeo ocupe o espaço sem distorção */
+	border: 2px solid #333;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	/* Faz o vídeo ficar à frente das estrelas */
+}
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+	height: auto;
+	/* Permite que a altura da página seja maior que a tela */
+	background-color: black;
+	overflow-y: auto;
+	/* Permite a rolagem vertical */
+}
+
+/* O contêiner #aventuras agora vai organizar tudo em uma coluna */
+#aventuras {
+	background: linear-gradient(0, #120c56, #000000);
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	/* Garante que os elementos fiquem em coluna */
+	height: 100vh;
+	position: relative;
+}
+
+video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 60%;
+	height: auto;
+	transform: translate(-50%, -50%);
+	object-fit: contain;
+	border: 2px solid #333;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.stars,
+.stars2 {
+	position: absolute;
+	width: 3px;
+	height: 3px;
+	border-radius: 50%;
+	box-shadow:
+		5vw 5vh white,
+		15vw 10vh white,
+		25vw 15vh white,
+		35vw 20vh white,
+		45vw 25vh white,
+		55vw 30vh white,
+		65vw 35vh white,
+		75vw 40vh white,
+		85vw 45vh white,
+		95vw 50vh white,
+		10vw 55vh white,
+		20vw 60vh white,
+		30vw 65vh white,
+		40vw 70vh white,
+		50vw 75vh white,
+		60vw 80vh white,
+		70vw 85vh white,
+		80vw 90vh white,
+		90vw 95vh white;
+	animation: anim-stars 10s linear infinite;
+	z-index: 0;
+}
+
+.stars2 {
+	width: 1px;
+	height: 1px;
+	box-shadow:
+		10vw 10vh white,
+		20vw 20vh white,
+		30vw 30vh white,
+		40vw 40vh white,
+		50vw 50vh white,
+		60vw 60vh white,
+		70vw 70vh white,
+		80vw 80vh white,
+		90vw 90vh white,
+		100vw 100vh white,
+		110vw 110vh white,
+		120vw 120vh white,
+		130vw 130vh white,
+		140vw 140vh white,
+		150vw 150vh white;
+	animation: anim-stars2 20s linear infinite;
+	z-index: 0;
+}
+
+@keyframes anim-stars {
+	from {
+		transform: translateY(0);
+	}
+
+	to {
+		transform: translateY(-100vh);
+	}
+}
+
+@keyframes anim-stars2 {
+	from {
+		transform: translateY(0);
+	}
+
+	to {
+		transform: translateY(-100vh);
+	}
+}
+
+.contentn {
+	margin-top: 80vh;
+	/* Garante que o conteúdo apareça após o vídeo */
+	color: white;
+	text-align: center;
+	padding: 20px;
+	font-size: 1.5em;
+}
