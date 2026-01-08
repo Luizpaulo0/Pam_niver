@@ -1,36 +1,182 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feliz Aniversário!</title>
-  <link rel="stylesheet" href="./CSS/style.css">
-  <link rel="icon" href="./IMAGENS/c20b55be77176fefa965c77afb50dbe1.jpg" sizes="96x96"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishes</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
-<body id="home">
-  
-  <div class="container">
-    <!-- Imagem à esquerda -->
-    <div class="images">
-      <img src="./IMAGENS/IMG-20240110-WA0019.png" alt="Eu com coração 1">
+<body>
+    <div class="app-container">
+        <video id="wish-video" class="background-video hidden" playsinline>
+            <source id="video-source" src="/Midia/5star.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+
+        <!-- ===================================
+         IMAGEM DE FUNDO PADRÃO
+         =================================== -->
+        <div id="background-image" class="background-image"></div>
+
+        <!-- ===================================
+         OVERLAY ESCURO (para legibilidade)
+         =================================== -->
+        <div class="overlay"></div>
+
+        <!-- ===================================
+         CABEÇALHO
+         =================================== -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="logo">Boa Sorte GOAT</h1>
+            </div>
+            <div class="header-right">
+                <!-- Moedas/Recursos do usuário -->
+                <div class="currency-display">
+                    <div class="currency-item">
+                        <img src="/placeholder.svg?height=24&width=24" alt="Moedas" class="currency-icon">
+                        <span id="coins-count">1600</span>
+                    </div>
+                    <div class="currency-item">
+                        <img src="/placeholder.svg?height=24&width=24" alt="Gemas" class="currency-icon">
+                        <span id="gems-count">8000</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===================================
+         CONTEÚDO PRINCIPAL
+         =================================== -->
+        <main class="main-content">
+
+            <!-- ===================================
+           ABAS DE BANNERS (Wish 1 e Wish 2)
+           =================================== -->
+            <nav class="banner-tabs">
+                <button class="tab-button active" data-tab="wish1" data-video="/Midia/5star.mp4">
+                    Wish 1
+                </button>
+                <button class="tab-button" data-tab="wish2" data-video="/Midia/5star.mp4">
+                    Wish 2
+                </button>
+            </nav>
+
+            <!-- ===================================
+           ÁREA DO BANNER ATIVO
+           =================================== -->
+            <section class="banner-display">
+
+                <!-- Banner Wish 1 -->
+                <div id="wish1-banner" class="banner-content active">
+                    <div class="banner-image-container">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Banner Wish 1" class="banner-image">
+                    </div>
+                    <div class="banner-info">
+                        <h2 class="banner-title">Banner Especial 1</h2>
+                        <p class="banner-description">
+                            Chance aumentada de obter itens raros!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Banner Wish 2 -->
+                <div id="wish2-banner" class="banner-content">
+                    <div class="banner-image-container">
+                        <img src="/Midia/teste.jpeg" alt="Banner Wish 2" class="banner-image">
+                    </div>
+                    <div class="banner-info">
+                        <h2 class="banner-title">Banner Especial 2</h2>
+                        <p class="banner-description">
+                            Novos personagens disponíveis!
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ===================================
+           PAINEL DE ITENS/PITY
+           =================================== -->
+            <aside class="items-panel">
+                <h3 class="panel-title">Histórico de Pity</h3>
+                <ul class="pity-list">
+                    <li class="pity-item">
+                        <span class="pity-label">5★ Pity:</span>
+                        <span id="pity-5star" class="pity-value">0</span>
+                    </li>
+                    <li class="pity-item">
+                        <span class="pity-label">4★ Pity:</span>
+                        <span id="pity-4star" class="pity-value">0</span>
+                    </li>
+                </ul>
+
+                <!-- Lista de itens obtidos -->
+                <div class="obtained-items">
+                    <h4 class="obtained-title">Últimos Itens</h4>
+                    <ul id="items-list" class="items-list">
+                        <!-- Itens serão adicionados via JavaScript -->
+                        <li class="item-placeholder">Nenhum item ainda</li>
+                    </ul>
+                </div>
+            </aside>
+
+        </main>
+
+        <!-- ===================================
+         RODAPÉ COM BOTÕES DE WISH
+         =================================== -->
+        <footer class="footer">
+            <div class="footer-left">
+                <button class="utility-button" id="settings-btn">
+                    Configurações
+                </button>
+                <button class="utility-button" id="details-btn">
+                    Detalhes
+                </button>
+                <button class="utility-button" id="inventory-btn">
+                    Inventário
+                </button>
+            </div>
+
+            <div class="footer-right">
+                <button class="wish-button" id="wish-single">
+                    <span class="wish-text">Wish</span>
+                    <span class="wish-cost">
+                        <img src="/placeholder.svg?height=16&width=16" alt="" class="cost-icon">
+                        160
+                    </span>
+                </button>
+                <button class="wish-button wish-multi" id="wish-multi">
+                    <span class="wish-text">Wish x10</span>
+                    <span class="wish-cost">
+                        <img src="/placeholder.svg?height=16&width=16" alt="" class="cost-icon">
+                        1600
+                    </span>
+                </button>
+            </div>
+        </footer>
+
+        <!-- ===================================
+         MODAL DE RESULTADO (após wish)
+         =================================== -->
+        <div id="result-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 class="modal-title">Resultado do Wish</h2>
+                <div id="result-items" class="result-items">
+                    <!-- Itens do resultado serão inseridos aqui -->
+                </div>
+                <button id="close-modal" class="close-button">
+                    Fechar
+                </button>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Conteúdo da Mensagem -->
-    <div class="content">
-      <h1>Feliz Aniversário, Pam. Vulgo Vossa Alteza</h1>
-      <p>Hoje é um dia, certamente que sim. Porém, todavia entretanto... é o seu dia, né 🙂‍↔️.</p>
-      <p>Você é uma pessoa incrível, me alegro em fazer parte da sua vida.</p>
-
-      <a href="./HTML/aventuras.html"><button id="surprise-btn">Chega mais piá, vamos ver algumas coisas muito massa 😎</button></a>
-    </div>
-
-    <!-- Imagem à direita -->
-    <div class="images">
-      <img src="./IMAGENS/IMG-20240110-WA0019.png" alt="Eu com coração 2">
-    </div>
-  </div>
+    <script src="script.js"></script>
 </body>
 
-</html> 
+</html>
